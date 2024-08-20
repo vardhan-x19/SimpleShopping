@@ -11,9 +11,10 @@ function Fetch() {
     const controller= new AbortController();
     const signal=controller.signal;
    //  dispatch(fetchActions.curFecthing());
-    fetch("http://localhost:8080/items",{signal})
+    fetch("https://actual-backend-1.onrender.com/items",{signal})
     .then(res => res.json())
     .then((data)=>{
+      console.log(data);
         dispatch (ItemActions.fetchingItems(data.items[0]));
         dispatch(fetchActions.fecthingdone());
         dispatch(fetchActions.curFecthingFinish());
